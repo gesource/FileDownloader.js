@@ -10,6 +10,11 @@ Download the file from the web.
 
 * TypeScript
 
+## Install
+
+   npm install
+   tsc file_downloader.ts
+
 ## Usage
 
 ダウンロードするファイルのURLをテキストファイルに記述します。
