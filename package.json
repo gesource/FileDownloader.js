@@ -1,7 +1,7 @@
 {
   "name": "file_donwloader",
   "version": "1.0.0",
-  "description": "",
+  "description": "Webからファイルをダウンロードします。",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,11 +10,21 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^7.0.0",
+    "tslint": "^4.4.2",
+    "typescript": "^2.1.6",
     "typings": "^2.1.0"
   },
   "dependencies": {
     "request": "^2.79.0",
     "tslint": "^4.4.2",
     "typescript": "^2.1.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gesource/FileDownloader.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gesource/FileDownloader.js/issues"
+  },
+  "homepage": "https://github.com/gesource/FileDownloader.js#readme"
 }
