@@ -1,11 +1,13 @@
 import * as fs from "fs";
 import * as path from "path";
-import * as request from "request";
+import fetch from "node-fetch";
 
 // ダウンロードしたファイルを保存するディレクトリ
 const download_dir = path.join(process.cwd(), "images");
 // ディレクトリを作成する
-fs.mkdirSync(download_dir);
+if (!fs.existsSync(download_dir)) {
+    fs.mkdirSync(download_dir);
+}
 
 // URLからファイル名を取得する
 const get_filename_from_url = (url: string): string => {
@@ -18,17 +20,10 @@ const get_filename_from_url = (url: string): string => {
 
 // URLを受け取り、該当するファイルをダウンロードして保存する
 const download = (url: string, filename: string) => {
-    request(
-        {method: "GET", url: url, encoding: null},
-        (error, response, body) => {
-            if (!error && response.statusCode === 200) {
-                console.log("OK:" + filename);
-                fs.writeFileSync(filename, body, "binary");
-            } else {
-                console.log("error:" + url);
-            }
-        }
-    );
+    fetch(url, { method: "GET" }).then((response) => {
+        console.log(`OK: ${filename}`);
+        response.body.pipe(fs.createWriteStream(filename));
+    }).catch((error) => console.log(`error:${url} ${error}`));
 };
 
 // 1行1URLのテキストファイルを読み込み、1行ずつdownload()を実行する

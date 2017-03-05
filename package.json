@@ -9,13 +9,15 @@
   "author": "yamamoto@gesource.jp",
   "license": "ISC",
   "devDependencies": {
+    "@types/core-js": "^0.9.35",
     "@types/node": "^7.0.0",
-    "tslint": "^4.4.2",
+    "tslint": "^4.5.1",
     "typescript": "^2.1.6",
     "typings": "^2.1.0"
   },
   "dependencies": {
-    "request": "^2.79.0",
+    "@types/node-fetch": "^1.6.7",
+    "node-fetch": "^1.6.3",
     "tslint": "^4.4.2",
     "typescript": "^2.1.5"
   },
